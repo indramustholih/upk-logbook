@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2022 at 03:13 PM
+-- Generation Time: Jul 16, 2022 at 05:51 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -275,7 +275,8 @@ INSERT INTO `jabatan_kerjas` (`id`, `nama_jabatan`, `created_at`, `updated_at`) 
 (28, 'Nutrisionis Terampil', NULL, NULL),
 (29, 'Dokter Pertama', NULL, NULL),
 (30, 'Pranata Komputer Pertama', NULL, NULL),
-(31, 'Perencana Pertama', NULL, NULL);
+(31, 'Perencana Pertama', NULL, NULL),
+(32, 'Perawat', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -385,7 +386,10 @@ INSERT INTO `kegiatan_jabatans` (`id_kegiatan_jabatan`, `id_jabatan_kerja`, `nam
 (18, 10, 'Melakukan perencanaan pelayanan keperawatan Menyusun rencana kegiatan individu\r\nperawat (0.24/Per dokumen harian)', 0.24000, 50, 'Dokumen', 100, 12, 0, '2022-07-11 04:42:22', '2022-07-11 04:42:22'),
 (19, 10, 'Melaksanakan kegiatan bantuan/partisipasi kesehatan (0.5/Per kali)', 0.50000, 50, 'Kali', 100, 12, 0, '2022-07-11 04:42:22', '2022-07-11 04:42:22'),
 (20, 10, 'Melaksanakan tugas lapangan di bidang kesehatan Melaksanakan penanggulangan\r\npenyakit/wabah tertentu (0.25/Per kali)', 0.25000, 20, 'Kali', 100, 12, 0, '2022-07-11 04:42:22', '2022-07-11 04:42:22'),
-(21, 10, 'Mengikuti seminar/lokakarya internasional/nasional sebagai Peserta (1/Kali)', 1.00000, 10, 'Kali', 100, 12, 0, '2022-07-11 04:42:23', '2022-07-11 04:42:23');
+(21, 10, 'Mengikuti seminar/lokakarya internasional/nasional sebagai Peserta (1/Kali)', 1.00000, 10, 'Kali', 100, 12, 0, '2022-07-11 04:42:23', '2022-07-11 04:42:23'),
+(22, 30, 'Melakukan implementasi rancangan intgrasi data (0.055/Layanan Integrasi data)', 0.05500, 1, 'Layanan', 100, 12, 0, '2022-07-12 23:26:33', '2022-07-12 23:26:33'),
+(23, 30, 'Membuat aplikasi di UPK Kemenkes', 1.00000, 1, 'Kali', 100, 12, 0, '2022-07-13 00:12:19', '2022-07-13 00:12:19'),
+(24, 30, 'Swab (tugas tambahan)', 0.00000, 5, 'Kali', 100, 12, 0, '2022-07-13 00:29:08', '2022-07-13 00:29:08');
 
 -- --------------------------------------------------------
 
@@ -409,22 +413,11 @@ CREATE TABLE `log_kegiatans` (
 --
 
 INSERT INTO `log_kegiatans` (`id_log_kegiatan`, `id_user`, `tanggal_kegiatan`, `id_master_kegiatan`, `jumlah`, `updated_at`, `created_at`, `keterangan`) VALUES
-(1, 1, '2022-07-01', 1, 1, '2022-07-07 10:23:41', '2022-07-07 10:23:41', NULL),
-(2, 1, '2022-07-01', 1, 1, '2022-07-07 10:24:50', '2022-07-07 10:24:50', NULL),
-(3, 1, '2022-07-23', 1, 1, '2022-07-07 10:27:50', '2022-07-07 10:27:50', NULL),
-(4, 1, '2022-07-28', 1, 1, '2022-07-07 10:30:51', '2022-07-07 10:30:51', NULL),
-(5, 1, '2022-07-27', 1, 1, '2022-07-07 10:32:39', '2022-07-07 10:32:39', NULL),
-(6, 3, '2022-07-01', 1, 1, '2022-07-07 10:33:46', '2022-07-07 10:33:46', NULL),
-(7, 3, '2022-07-01', 1, 1, '2022-07-07 10:36:18', '2022-07-07 10:36:18', NULL),
-(8, 3, '2022-07-08', 1, 1, '2022-07-07 10:36:49', '2022-07-07 10:36:49', NULL),
-(9, 3, '2022-07-19', 1, 1, '2022-07-07 10:44:36', '2022-07-07 10:44:36', NULL),
-(10, 3, '2022-07-01', 1, 1, '2022-07-07 20:29:55', '2022-07-07 20:29:55', NULL),
-(11, 1, '2022-07-01', 1, 1, '2022-07-11 19:01:32', '2022-07-11 19:01:32', NULL),
-(12, 22, '2022-07-01', 22, 1, '2022-07-11 19:05:52', '2022-07-11 19:05:52', NULL),
-(13, 22, '2022-07-01', 22, 3, '2022-07-11 21:45:27', '2022-07-11 21:45:27', NULL),
-(14, 22, '2022-07-20', 22, 1, '2022-07-11 21:46:33', '2022-07-11 21:46:33', NULL),
-(15, 22, '2022-07-01', 21, 1, '2022-07-11 21:49:44', '2022-07-11 21:49:44', NULL),
-(16, 22, '2022-07-22', 20, 5, '2022-07-11 21:51:18', '2022-07-11 21:51:18', NULL);
+(19, 22, '2022-07-01', 24, 1, '2022-07-12 09:29:16', '2022-07-12 09:29:16', 'ikutan seminar'),
+(20, 22, '2022-07-14', 19, 3, '2022-07-12 10:24:26', '2022-07-12 10:24:26', '3 pasien hari ini'),
+(21, 3, '2022-07-13', 32, 2, '2022-07-12 23:27:20', '2022-07-12 23:27:20', '-'),
+(22, 3, '2022-07-13', 33, 1, '2022-07-13 00:13:29', '2022-07-13 00:13:29', 'Membuat aplikasi logbook'),
+(23, 3, '2022-07-13', 34, 3, '2022-07-13 00:30:14', '2022-07-13 00:30:14', '-');
 
 -- --------------------------------------------------------
 
@@ -454,17 +447,19 @@ CREATE TABLE `master_kegiatans` (
 
 INSERT INTO `master_kegiatans` (`id_master_kegiatan`, `id_user`, `tahun`, `id_kegiatan_jabatan`, `nama_kegiatan`, `angka_kredit`, `output`, `satuan`, `mutu`, `waktu`, `biaya`, `created_at`, `updated_at`) VALUES
 (1, 1, 2022, 1, 'Mengumpulkan kelengkapan berkas usul penetapan Kartu Isteri/Kartu Suami', 0.03000, 10, 'berkas', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
-(2, 3, 2022, 3, '', NULL, NULL, NULL, NULL, NULL, 0, '2022-07-07 20:13:24', '2022-07-07 20:13:24'),
 (3, 22, 2022, 15, 'Implementasi keperawatan Melakukan intervensi keperawatan (acute & chroniccare )', 0.18000, 30, 'Tindakan', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
 (7, 22, 2022, 5, 'Implementasi keperawatan Melakukan intervensi keperawatan (acute & chroniccare ) dalam rangka pemenuhan kebutuhan dasar manusia Pemenuhan kebutuhan pengaturan suhu tubuh Memfasilitasi lingkungan dengan suhu yang sesuai dengan kebutuhan (0.43/Pertindakan)\r\n', 0.43000, 30, 'Tindakan', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
 (8, 22, 2022, 6, 'Implementasi keperawatan Melakukan intervensi keperawatan (acute & chroniccare )\r\ndalam rangka pemenuhan kebutuhan dasar manusia Tindakan keperawatan yang berkaitan\r\ndengan komunikasi Melakukan komunikasi terapeutik dalam pemberian asuhan keperawatan\r\n(0.05/Pertindakan)', 0.05000, 30, 'Tindakan', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
-(18, 22, 2022, 10, 'Implementasi keperawatan Melakukan intervensi keperawatan (acute & chroniccare )\r\ndalam rangka pemenuhan kebutuhan dasar manusia Tindakan keperawatan yang berkaitan\r\ndengan rekreasi Memfasilitasi suasana lingkungan yang tenang dan aman\r\n(0.24/Pertindakan)', 0.24000, 30, 'Tindakan', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
 (19, 22, 2022, 16, 'Melakukan dokumentasi proses keperawatan pada tahap Diagnosis keperawatan (0.12/Per\r\npasien)', 0.12000, 50, 'Pasien', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
 (20, 22, 2022, 17, 'Melakukan dokumentasi proses keperawatan pada tahap Terampilan tindakan keperawatan\r\n(0.12/Per pasien)', 0.12000, 30, 'Pasien', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
 (21, 22, 2022, 18, 'Melakukan perencanaan pelayanan keperawatan Menyusun rencana kegiatan individu\r\nperawat (0.24/Per dokumen harian)', 0.24000, 50, 'Dokumen', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
 (22, 22, 2022, 19, 'Melaksanakan kegiatan bantuan/partisipasi kesehatan (0.5/Per kali)', 0.50000, 50, 'Kali', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
 (23, 22, 2022, 20, 'Melaksanakan tugas lapangan di bidang kesehatan Melaksanakan penanggulangan\r\npenyakit/wabah tertentu (0.25/Per kali)', 0.25000, 20, 'Kali', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
-(24, 22, 2022, 21, 'Mengikuti seminar/lokakarya internasional/nasional sebagai Peserta (1/Kali)', 1.00000, 10, 'Kali', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47');
+(24, 22, 2022, 21, 'Mengikuti seminar/lokakarya internasional/nasional sebagai Peserta (1/Kali)', 1.00000, 10, 'Kali', 100, 12, 0, '2022-07-11 18:50:47', '2022-07-11 18:50:47'),
+(31, 22, 2022, 10, 'Implementasi keperawatan Melakukan intervensi keperawatan (acute & chroniccare )dalam rangka pemenuhan kebutuhan dasar manusia Tindakan keperawatan yang berkaitandengan rekreasi Memfasilitasi suasana lingkungan yang tenang dan aman(0.24/Pertindakan)', 0.24000, 30, 'Tindakan', 100, 12, 0, '2022-07-12 10:23:26', '2022-07-12 10:23:26'),
+(32, 3, 2022, 22, 'Melakukan implementasi rancangan intgrasi data (0.055/Layanan Integrasi data)', 0.05500, 1, 'Layanan', 100, 12, 0, '2022-07-12 23:26:52', '2022-07-12 23:26:52'),
+(33, 3, 2022, 23, 'Membuat aplikasi di UPK Kemenkes', 1.00000, 1, 'Kali', 100, 12, 0, '2022-07-13 00:12:39', '2022-07-13 00:12:39'),
+(34, 3, 2022, 24, 'Swab (tugas tambahan)', 0.00000, 5, 'Kali', 100, 12, 0, '2022-07-13 00:29:56', '2022-07-13 00:29:56');
 
 -- --------------------------------------------------------
 
@@ -770,8 +765,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `foto`, `level`, `remember_token`, `nip`, `created_at`, `updated_at`, `id_jabatan`, `unit_kerja`, `pangkat`) VALUES
-(1, 'admin', 'admin@example.com', '$2y$10$qHSGdrHTOKuLtwyt5/Sn4uvpvheu0/nwKdgNNNBf1dolKuxH/dvPS', 'admin.png', 1, NULL, NULL, '2022-07-06 19:40:10', '2022-07-06 19:52:10', NULL, NULL, NULL),
-(2, 'user', 'user@example.com', '$2y$10$XmzNRxJvb7vAESkwq8Rs5OKfBvgfTKNwwbAM3u2u9u8dbxXpf1Ua2', 'user.png', 2, NULL, NULL, '2022-07-06 19:40:10', '2022-07-06 19:52:10', NULL, NULL, NULL),
+(1, 'admin', 'admin@example.com', '$2y$10$qHSGdrHTOKuLtwyt5/Sn4uvpvheu0/nwKdgNNNBf1dolKuxH/dvPS', 'admin.png', 1, NULL, NULL, '2022-07-06 19:40:10', '2022-07-06 19:52:10', 1, NULL, NULL),
+(2, 'user', 'user@example.com', '$2y$10$XmzNRxJvb7vAESkwq8Rs5OKfBvgfTKNwwbAM3u2u9u8dbxXpf1Ua2', 'user.png', 2, NULL, NULL, '2022-07-06 19:40:10', '2022-07-06 19:52:10', 1, NULL, NULL),
 (3, 'Indra Mustholih, S.Kom', '199406112022031002', '$2y$10$hwhCZlJse6VhHD8kncdBXeyP6gtrGxoZ2sKkKZLDtWUAwkUwNEle.', 'user.png', 1, NULL, '199406112022031002', '2022-07-06 19:40:10', '2022-07-06 19:52:10', 30, 'Unit Pelayanan Kesehatan Kementerian Kesehatan', 'Penata Muda - III/a\r\n'),
 (4, 'drg. Inda Torisia Hatang, MKM', '197307132002122005', '$2y$10$hwhCZlJse6VhHD8kncdBXeyP6gtrGxoZ2sKkKZLDtWUAwkUwNEle.', 'user.png', 2, NULL, '197307132002122005', NULL, NULL, 1, 'Unit Pelayanan Kesehatan Kementerian Kesehatan', 'Pembina Tk.I - IV/b'),
 (8, 'Siti Khadijah, S.Si, Apt, MM', '197912262005012003', '$2y$10$hwhCZlJse6VhHD8kncdBXeyP6gtrGxoZ2sKkKZLDtWUAwkUwNEle.', 'user.png', 2, NULL, '197912262005012003', NULL, NULL, 2, 'Unit Pelayanan Kesehatan Kementerian Kesehatan', 'Pembina-IV/a'),
@@ -1074,19 +1069,19 @@ ALTER TABLE `jenis_pelatihans`
 -- AUTO_INCREMENT for table `kegiatan_jabatans`
 --
 ALTER TABLE `kegiatan_jabatans`
-  MODIFY `id_kegiatan_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_kegiatan_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `log_kegiatans`
 --
 ALTER TABLE `log_kegiatans`
-  MODIFY `id_log_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_log_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `master_kegiatans`
 --
 ALTER TABLE `master_kegiatans`
-  MODIFY `id_master_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_master_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `migrations`

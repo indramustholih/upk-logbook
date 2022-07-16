@@ -13,7 +13,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <div class="row input-daterange">
+                    <!-- <div class="row input-daterange">
                         <div class="col-md-4">
                             <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
                         </div>
@@ -24,7 +24,7 @@
                             <button type="button" name="filter" id="filter" class="btn btn-primary">Filter</button>
                             <button type="button" name="refresh" id="refresh" class="btn btn-default">Refresh</button>
                         </div>
-                    </div>
+                    </div> -->
                     <br/>
                     <a onclick="addForm()" class="btn btn-success">
                         <i class="fa fa-plus-circle"></i>
@@ -59,6 +59,26 @@
     <script type="text/javascript">
         var table, save_method;
         
+        $('.select2').select2();
+
+        $("#id_kegiatan_jabatan").change(function () {
+            var nama_kegiatan = $("#kegiatan-"+this.value).data('namakegiatan');
+            var angka_kredit = $("#kegiatan-"+this.value).data('angkakredit');
+            var output = $("#kegiatan-"+this.value).data('output');
+            var satuan = $("#kegiatan-"+this.value).data('satuan');
+            var mutu = $("#kegiatan-"+this.value).data('mutu');
+            var waktu = $("#kegiatan-"+this.value).data('waktu');
+            var biaya = $("#kegiatan-"+this.value).data('biaya');
+
+            $("#nama_kegiatan").val(nama_kegiatan);
+            $("#angka_kredit").val(angka_kredit);
+            $("#output").val(output);
+            $("#satuan").val(satuan);
+            $("#mutu").val(mutu);
+            $("#waktu").val(waktu);
+            $("#biaya").val(biaya);
+        });
+
         $(function() {
             //menampilkan data dengan plugin DataTable
             table = $('.table').DataTable({

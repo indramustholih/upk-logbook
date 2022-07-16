@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\KegiatanJabatan;
 use App\Models\LogKegiatan;
+use App\Models\MasterKegiatan;
+use App\Models\JabatanKerja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,8 +18,17 @@ class LogKegiatanController extends Controller
     public function inputLogKegiatan()
     {
         $id_jabatan = Auth::user()->id_jabatan;
-        $kegiatan = KegiatanJabatan::where('id_jabatan_kerja', '=', $id_jabatan)->orderBy('nama_kegiatan', 'asc')->get();
-        return view('kegiatan.log-kegiatan.input', compact('kegiatan'));
+        // $kegiatan = MasterKegiatan::where('id_jabatan_kerja', '=', $id_jabatan)
+        // ->orderBy('nama_kegiatan', 'asc')->get();
+        $jabatan = JabatanKerja::where('id','=',$id_jabatan)->first();
+        $kegiatan = MasterKegiatan::select(
+            'master_kegiatans.*'
+        )->join('kegiatan_jabatans', 'master_kegiatans.id_kegiatan_jabatan', '=', 'kegiatan_jabatans.id_kegiatan_jabatan')
+        ->where('kegiatan_jabatans.id_jabatan_kerja', '=', $id_jabatan)
+        ->orderBy('master_kegiatans.nama_kegiatan', 'asc')->get();
+       
+
+        return view('kegiatan.log-kegiatan.input', compact('kegiatan', 'jabatan'));
     }
     public function store(Request $request)
     {
@@ -26,6 +37,7 @@ class LogKegiatanController extends Controller
         $log_kegiatan->tanggal_kegiatan = $request['tanggal_kegiatan'];
         $log_kegiatan->id_master_kegiatan = $request['id_master_kegiatan'];
         $log_kegiatan->jumlah = $request['jumlah'];
+        $log_kegiatan->keterangan = $request['keterangan'];
         $log_kegiatan->save();
         return response()->json(['success'=>'true']);
     }
@@ -43,6 +55,7 @@ class LogKegiatanController extends Controller
         )->join('master_kegiatans', 'master_kegiatans.id_master_kegiatan', '=', 'log_kegiatans.id_master_kegiatan')
         ->where('log_kegiatans.id_user', '=', $id_user)
         ->orderBy('log_kegiatans.tanggal_kegiatan', 'asc')->get();
+        
         $no = 0;
         $data = array();
         foreach ($log_kegiatan as $list) {

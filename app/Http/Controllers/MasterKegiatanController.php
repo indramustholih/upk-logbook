@@ -72,11 +72,13 @@ class MasterKegiatanController extends Controller
         $master_kegiatan->id_user = $request['id_user'];
         $master_kegiatan->tahun = $request['tahun'];
         $master_kegiatan->id_kegiatan_jabatan = $request['id_kegiatan_jabatan'];
-        // $master_kegiatan->output = $request['output'];
-        // $master_kegiatan->satuan = $request['satuan'];
-        // $master_kegiatan->mutu = $request['mutu'];
-        // $master_kegiatan->waktu = $request['waktu'];
-        // $master_kegiatan->biaya = $request['biaya'];
+        $master_kegiatan->nama_kegiatan = $request['nama_kegiatan'];
+        $master_kegiatan->angka_kredit = $request['angka_kredit'];
+        $master_kegiatan->output = $request['output'];
+        $master_kegiatan->satuan = $request['satuan'];
+        $master_kegiatan->mutu = $request['mutu'];
+        $master_kegiatan->waktu = $request['waktu'];
+        $master_kegiatan->biaya = $request['biaya'];
         $master_kegiatan->save();
     }
 }

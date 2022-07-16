@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label for="tahun" class="col-md-3 control-label">Tahun</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="tahun" name="tahun" placeholder="tahun" autofocus >
+                            <input type="text" class="form-control" id="tahun" name="tahun" placeholder="Tahun" autofocus >
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>
@@ -34,18 +34,83 @@
                     <div class="form-group">
                         <label for="id_kegiatan_jabatan" class="col-md-3 control-label">Kegiatan Jabatan</label>
                         <div class="col-md-6">
-                            <select type="text" class="form-control" id="id_kegiatan_jabatan" name="id_kegiatan_jabatan"
-                                autofocus required>
+                            <select class="form-control select2" id="id_kegiatan_jabatan" name="id_kegiatan_jabatan"
+                                style="width:400px">
                                 <option value=""></option>
                                 @foreach ($kegiatan_jabatan as $list)
-                                    <option value="{{ $list->id_kegiatan_jabatan }}">{{ $list->nama_kegiatan }}</option>
+                                    <option 
+                                        id="kegiatan-{{$list->id_kegiatan_jabatan}}"    
+                                        value="{{ $list->id_kegiatan_jabatan }}"
+                                        data-namakegiatan="{{$list->nama_kegiatan}}" 
+                                        data-angkakredit="{{$list->angka_kredit}}" 
+                                        data-output="{{$list->output}}" 
+                                        data-satuan="{{$list->satuan}}"
+                                        data-mutu="{{$list->mutu}}"
+                                        data-waktu="{{$list->waktu}}"
+                                        data-biaya="{{$list->biaya}}"
+                                            
+                                    >{{ $list->nama_kegiatan }}</option>
                                 @endforeach
-                                <select>
-                                    <span class="help-block with-errors"></span>
+                            </select>
+                            <span class="help-block with-errors"></span>
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="nama_kegiatan" class="col-md-3 control-label">Nama Kegiatan</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="nama_kegiatan" name="nama_kegiatan" placeholder="Nama Kegiatan" readonly >
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="angka_kredit" class="col-md-3 control-label">Angka Kredit</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="angka_kredit" name="angka_kredit" placeholder="Angka Kredit" readonly >
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="output" class="col-md-3 control-label">Output</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="output" name="output" placeholder="Output" readonly >
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
                     
+                    <div class="form-group">
+                        <label for="satuan" class="col-md-3 control-label">Satuan</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="satuan" name="satuan" placeholder="Satuan" readonly >
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mutu" class="col-md-3 control-label">Mutu</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="mutu" name="mutu" placeholder="Mutu" readonly >
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="waktu" class="col-md-3 control-label">Waktu</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="waktu" name="waktu" placeholder="Waktu" readonly >
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="biaya" class="col-md-3 control-label">Biaya</label>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="biaya" name="biaya" placeholder="Biaya" readonly >
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
 
                 </div>
 

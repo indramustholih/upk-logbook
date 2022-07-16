@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\JabatanKerja;
 use Auth;
 
 class HomeController extends Controller
@@ -40,14 +41,16 @@ class HomeController extends Controller
         //     $data_pendapatan[] =(int) $pendapatan;
         //     $tanggal = date('Y-m-d', strtotime("+1 day", strtotime($tanggal)));
         // }
-
+        $id_jabatan = Auth::user()->id_jabatan;
+        $jabatan = JabatanKerja::where('id','=',$id_jabatan)->first();
+        
         $user = User::count();
         // $produk = Produk::count();
         // $supplier = Supplier::count();
         // $member = Member::count();
 
-        if (Auth::user()->level == 1) return view('home.admin', compact('user'));
-        if (Auth::user()->level == 2) return view('home.user', compact('user'));
+        if (Auth::user()->level == 1) return view('home.admin', compact('user', 'jabatan'));
+        if (Auth::user()->level == 2) return view('home.user', compact('user', 'jabatan'));
 
     }
 }
